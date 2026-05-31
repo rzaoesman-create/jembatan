@@ -12,5 +12,14 @@
 </head>
 <body>
     <iframe src="https://printpro.my.id/login"></iframe>
+
+    <script>
+        // Mendaftarkan Service Worker agar lolos syarat PWABuilder
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+            .then(() => console.log("Service Worker Terdaftar!"))
+            .catch((err) => console.log("Gagal:", err));
+        }
+    </script>
 </body>
 </html>
