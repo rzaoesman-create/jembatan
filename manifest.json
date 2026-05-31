@@ -1,7 +1,7 @@
 {
   "name": "PrintPro Sinar Grafika",
   "short_name": "PrintPro",
-  "start_url": "https://printpro.my.id",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
@@ -9,6 +9,11 @@
     {
       "src": "https://images.unsplash.com/photo-1562564211-715d4267664d?w=192",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1562564211-715d4267664d?w=512",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
