@@ -5,45 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="manifest.json">
     <title>PrintPro POS</title>
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #ffffff; }
-        iframe { width: 100%; height: 100%; border: none; }
-    </style>
-</head>
-<body>
-
-    <iframe id="posFrame" src="https://printpro.my.id"></iframe>
-
     <script>
-        // 1. Daftarkan Service Worker agar PWABuilder tetap hijau
+        // 1. Daftarkan Service Worker agar syarat PWABuilder tetap terpenuhi
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-            .then(() => console.log("SW Aktif!"))
-            .catch((err) => console.log("SW Gagal:", err));
+            navigator.serviceWorker.register('sw.js');
         }
 
-        // 2. Trik Otomatis Klik Tombol "MASUK SISTEM" saat halaman selesai dimuat
-        const iframe = document.getElementById('posFrame');
-        
-        iframe.onload = function() {
-            try {
-                // Mencari elemen tombol berdasarkan teks "MASUK SISTEM"
-                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                
-                // Cari semua elemen tombol atau link di halaman tersebut
-                const elements = iframeDocument.querySelectorAll('a, button, div, span');
-                
-                for (let el of elements) {
-                    if (el.textContent.trim() === 'MASUK SISTEM') {
-                        el.click(); // EKSEKUSI KLIK OTOMATIS!
-                        console.log('Tombol Masuk Sistem berhasil diklik otomatis.');
-                        break;
-                    }
-                }
-            } catch (error) {
-                console.log("Iframe diblokir kebijakan CORS atau gagal klik otomatis:", error);
-            }
-        };
+        // 2. TAKTIK PAMUNGKAS: Alihkan seluruh layar langsung ke domain target
+        // Ini melewati blokir CORS karena kita tidak membungkusnya dalam iframe
+        window.location.href = "https://printpro.my.id";
     </script>
+</head>
+<body style="background-color: #ffffff; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif;">
+    <div style="text-align: center; color: #555;">
+        <p>Memuat PrintPro POS Sinar Grafika...</p>
+    </div>
 </body>
 </html>
